@@ -1,9 +1,9 @@
 const list = document.querySelectorAll(".cf");
-var page = document.querySelector(".page");
+const page = document.querySelector(".page");
 
-let elementPerPage = 10;
+const elementPerPage = 10;
 let index;
-let numPagess = Math.ceil(list.length / elementPerPage);
+const numPagess = Math.ceil(list.length / elementPerPage);
 
 function hideElements() {
   list.forEach(element => {
@@ -34,8 +34,6 @@ function createAtributs() {
     elementA.addEventListener("click", function  () {
       showElements(parseInt(this.innerText))
     });
-
-
 
   }
 
