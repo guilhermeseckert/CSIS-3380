@@ -1,0 +1,62 @@
+const list = document.querySelectorAll(".cf");
+var page = document.querySelector(".page");
+
+let elementPerPage = 10;
+let index;
+let numPagess = Math.ceil(list.length / elementPerPage);
+
+function hideElements() {
+  list.forEach(element => {
+    element.style.display = "none";
+  });
+}
+
+function createAtributs() {
+
+  const divPagination = document.createElement("div");
+  divPagination.setAttribute("class", "pagination")
+  const elementUl = document.createElement("ul");
+  elementUl.setAttribute("id", "numberPage");
+  page.appendChild(divPagination)
+  divPagination.appendChild(elementUl);
+
+  for (var k = 1; k < numPagess + 1; k++) {
+    var elementLi = document.createElement("li");
+    var elementA = document.createElement("a");
+    elementA.setAttribute("href", "#");
+    elementLi.setAttribute("id", "list");
+    var pagelist = document.getElementById("numberPage");
+    pagelist.appendChild(elementLi);
+    elementLi.appendChild(elementA);
+    var pageNumbers = document.createTextNode(k);
+    elementA.appendChild(pageNumbers);
+
+    elementA.addEventListener("click", function () {
+      var pagNumber = (this.innerHTML || this.innerText);
+      showElements(parseInt(pagNumber))
+    }, false);
+
+  }
+
+}
+
+createAtributs();
+
+
+function showElements(pag) {
+  hideElements()
+
+  for (var i = 0; i < elementPerPage; i++) {
+    index = [pag] * elementPerPage - elementPerPage + i;
+
+    if (list[index] !== undefined) {
+      list[index].style.display = "block";
+    }
+  }
+}
+
+showElements(1)
+
+
+
+
