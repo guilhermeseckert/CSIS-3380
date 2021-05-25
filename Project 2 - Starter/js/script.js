@@ -31,10 +31,11 @@ function createAtributs() {
     var pageNumbers = document.createTextNode(k);
     elementA.appendChild(pageNumbers);
 
-    elementA.addEventListener("click", function () {
-      var pagNumber = (this.innerHTML || this.innerText);
-      showElements(parseInt(pagNumber))
-    }, false);
+    elementA.addEventListener("click", function  () {
+      showElements(parseInt(this.innerText))
+    });
+
+
 
   }
 
