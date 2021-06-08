@@ -1,0 +1,26 @@
+extends layout.pug
+
+block content 
+  article.grid-container.portfolio-intro
+    div
+
+      //- Add a title or heading like My Portfolio, or Hey, Potential Employers, or Let's make the web great together! 
+      h1 Hi there ! Don’t Repeat Yourself!
+
+      //- Add a description for your portfolio, what this project is, it's purpose, what it's supposed to accomplish, etc. 
+      p.lead.text-light
+        | I'm studying to become a Full Stack Developer . I'm currently looking for opportunities. I love to learn and contribute in any and every possible way. I'm passionate about technology, people, theather and specialy movies, As you may have noticed, I'm a huge fan of Iron Man.
+  article.grid-container.portfolio-index
+    
+    .grid-x.grid-margin-x.small-up-2.medium-up-2.large-up-3
+  
+          each project in projects
+            .cell
+              a(href=`/projects/${project.id}`)
+                 img.thumbnail(src=`${project.image[1]}`)
+                 h5= project.name
+        
+              
+
+
+
